@@ -5,4 +5,4 @@
  * @author Curso
  *
  */
-package com.ipartek.formacion.persistence;
+package com.ipartek.formacion.dao;
