@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 	xmlns:context="http://www.springframework.org/schema/context"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 	xmlns:aop="http://www.springframework.org/schema/aop"
+ 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd
+ 		http://www.springframework.org/schema/context
+ 		http://www.springframework.org/schema/context/spring-context.xsd
+ 		http://www.springframework.org/schema/aop
+ 		http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+
+<bean id="databaseProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:/database.properties"></property>
+	</bean>
+<bean name="mysqlDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/biblioteca_bilbao"/>
+		<property name="username" value="${mysql.user}"/>
+		<property name="password" value="${mysql.pass}"/>
+	</bean>
+	<bean id="UserDAOImp" class="com.ipartek.formacion.dao.UserDAOImp">
+		<property name="dataSource" ref="mysqlDataSource"/>
+	</bean>
+	<bean id="BookDAOImp" class="com.ipartek.formacion.dao.BookDAOImp">
+		<property name="dataSource" ref="mysqlDataSource"/>
+	</bean>
+	<bean id="CopyDAOImp" class="com.ipartek.formacion.dao.CopyDAOImp">
+		<property name="dataSource" ref="mysqlDataSource"/>
+	</bean>
+	
+	</beans>

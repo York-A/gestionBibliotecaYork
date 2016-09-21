@@ -5,4 +5,25 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+	<bean id="databaseProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:/database.properties"></property>
+	</bean>
+	
+	
+	<bean name="mysqlDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/biblioteca_bilbao"/>
+		<property name="username" value="${mysql.user}"/>
+		<property name="password" value="${mysql.pass}"/>
+	</bean>
+	<bean id="userDAOImp" class="com.ipartek.formacion.dao.UserDAOImp">
+		<property name="dataSource" ref="mysqlDataSource"/>
+	</bean>
+	<bean id="bookDAOImp" class="com.ipartek.formacion.dao.BookDAOImp">
+		<property name="dataSource" ref="mysqlDataSource"/>
+	</bean>
+	<bean id="copyDAOImp" class="com.ipartek.formacion.dao.CopyDAOImp">
+		<property name="dataSource" ref="mysqlDataSource"/>
+	</bean>
+		
 </beans>
