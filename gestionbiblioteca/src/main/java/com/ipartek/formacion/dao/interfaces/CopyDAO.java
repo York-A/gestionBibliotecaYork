@@ -11,4 +11,6 @@ public interface CopyDAO {
 	public Copy getById(int id);
 	public Copy update(Copy c);
 	public Copy create(Copy c);
+	
+	public Copy rent(Copy c, int idU);
 }

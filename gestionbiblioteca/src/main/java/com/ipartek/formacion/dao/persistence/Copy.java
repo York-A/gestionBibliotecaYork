@@ -3,17 +3,18 @@ package com.ipartek.formacion.dao.persistence;
 public class Copy {
 
 	private int idCopy;
-	private int book;
+	private Book book;
 	private String publisher;
 	private int nPages;
-	
+	private int rent;
 	
 	public Copy() {
 		super();
 		this.setIdCopy(-1);
-		this.setBook(-1);
+		this.setBook(new Book());
 		this.setPublisher("");
 		this.setnPages(-1);
+		this.setRent(-1);
 	}
 
 
@@ -27,12 +28,12 @@ public class Copy {
 	}
 
 
-	public int getBook() {
+	public Book getBook() {
 		return book;
 	}
 
 
-	public void setBook(int book) {
+	public void setBook(Book book) {
 		this.book = book;
 	}
 
@@ -54,6 +55,16 @@ public class Copy {
 
 	public void setnPages(int nPages) {
 		this.nPages = nPages;
+	}
+
+
+	public int getRent() {
+		return rent;
+	}
+
+
+	public void setRent(int rent) {
+		this.rent = rent;
 	}
 	
 	
