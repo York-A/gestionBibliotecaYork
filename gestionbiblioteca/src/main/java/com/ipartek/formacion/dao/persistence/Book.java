@@ -1,11 +1,15 @@
 package com.ipartek.formacion.dao.persistence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
 
 	private int idBook;
 	private String title;
 	private String author;
 	private String isbn;
+	private List<Copy>copies;
 	
 	public Book() {
 		super();
@@ -13,6 +17,7 @@ public class Book {
 		this.setTitle("");
 		this.setAuthor("");
 		this.setIsbn("");
+//		this.setCopies(new ArrayList<Copy>());
 	}
 
 	public int getIdBook() {
@@ -46,7 +51,15 @@ public class Book {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	
+
+//	public List<Copy> getCopies() {
+//		return copies;
+//	}
+//
+//	public void setCopies(List<Copy> copies) {
+//		this.copies = copies;
+//	}
+//	
 	
 	
 	

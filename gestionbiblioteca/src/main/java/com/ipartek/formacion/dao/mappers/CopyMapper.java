@@ -14,12 +14,15 @@ public class CopyMapper implements RowMapper<Copy>{
 	@Override
 	public Copy mapRow(ResultSet rS, int rowNum) throws SQLException {
 		Copy c=new Copy();
-		c.setIdCopy(rS.getInt("idBook"));
+		c.setIdCopy(rS.getInt("idCopy"));
 		c.setPublisher(rS.getString("publisher"));
 		c.setnPages(rS.getInt("nPages"));
-		c.setRent(rS.getInt("rent"));
-		c.setBook(cDAO.getFullBook(rS.getInt("book")));
 		
+		c.setRent(rS.getInt("rent"));
+		
+		int i=rS.getInt("book");
+		c.setBook(cDAO.getFullBook(i));
+		System.out.println();
 		return c;
 	}
 

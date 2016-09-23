@@ -20,33 +20,28 @@ public class PruebaDAO {
 		CopyDAO cD=ctx.getBean(CopyDAOImp.class);
 		
 		int n=1;
-//		Book b=new Book();
-//		b.setAuthor("Aldous Huxley");
-//		b.setTitle("Un Mundo Feliz");
-//		b.setIsbn("1758392648");
-//		bD.create(b);
-		
-		//Book b=bD.getById(n);
-		//System.out.println(b.getTitle());
-//		Book b=bD.getById(12);
-//		Copy c= new Copy();
-//		c.setBook(b);
-//		c.setnPages(134);
-//		c.setPublisher("milagritos");
-//		cD.create(c);
-		
-//		Copy c=cD.getById(3);
+//		Book b=bD.getById(n);
+//		List<Copy> cs=b.getCopies();
+//		for (Copy copy : cs) {
+//			System.out.println(copy.getnPages());
+//		}
+//		Copy c=cD.getById(n);
 //		System.out.println(c.getBook().getTitle());
-//		System.out.println(c.getPublisher());
-//		
 		
-		List<Book> bs=bD.getAll();
+//		Book b=bD.getById(n);
+//		System.out.println(b.getTitle());
+//		List<Copy>cs=bD.getCopies(1);
+//		for (Copy copy : cs) {
+//			System.out.println(copy.getPublisher());
+//		}
 		
+		List<Book>bs=bD.getAll();
 		for (Book book : bs) {
-			System.out.println(book.getIdBook());
+			System.out.println(book.getTitle());
+		
 		}
-		
-		
+		Book b=bD.getById(2);
+		System.out.println(b.getAuthor());
 		
 		ctx.close();
 		

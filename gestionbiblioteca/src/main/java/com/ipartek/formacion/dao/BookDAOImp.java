@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -14,7 +15,9 @@ import org.springframework.stereotype.Repository;
 
 import com.ipartek.formacion.dao.interfaces.BookDAO;
 import com.ipartek.formacion.dao.persistence.Book;
+import com.ipartek.formacion.dao.persistence.Copy;
 import com.ipartek.formacion.dao.mappers.BookMapper;
+import com.ipartek.formacion.dao.mappers.CopyMapper;
 
 @Repository
 public class BookDAOImp implements BookDAO  {
@@ -65,7 +68,7 @@ public class BookDAOImp implements BookDAO  {
 		book.setTitle((String)out.get("out_title"));
 		book.setAuthor((String)out.get("out_author"));
 		book.setIsbn((String)out.get("out_isbn"));
-		
+//		book.setCopies(this.getCopiesOf(id));
 		return book;
 	}
 
@@ -87,5 +90,17 @@ public class BookDAOImp implements BookDAO  {
 		return b;
 		
 	}
+//	@Override
+//	public List<Copy> getCopiesOf(int id) {
+//
+//		List<Copy> copies=null;
+//		this.jdbcCall=new SimpleJdbcCall(dataSource).withProcedureName("getCopiesOfBook").returningResultSet("copies", new CopyMapper());
+//		SqlParameterSource in=new MapSqlParameterSource().addValue("codBook", id);	
+//		Map<String,Object> out=jdbcCall.execute(in);
+//		copies=(List)out.get("copies");
+//		
+//		
+//		return copies;
+//	}
 
 }

@@ -3,11 +3,13 @@ package com.ipartek.formacion.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ipartek.formacion.dao.CopyDAOImp;
 import com.ipartek.formacion.dao.persistence.Copy;
 import com.ipartek.formacion.service.interfaces.CopyService;
 
+@Service
 public class CopiesServiceImp implements CopyService{
 
 	@Autowired

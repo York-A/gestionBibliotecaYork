@@ -67,6 +67,7 @@ public class CopyDAOImp implements CopyDAO{
 		c.setBook(getFullBook((Integer)out.get("out_book")));
 		c.setnPages((Integer)out.get("out_npages"));
 		c.setPublisher((String)out.get("out_publisher"));
+		c.setRent((Integer)out.get("out_rent"));
 return c;
 	}
 
@@ -93,6 +94,7 @@ return c;
 		Book b=null;
 		ClassPathXmlApplicationContext contx=new ClassPathXmlApplicationContext("classpath:/spring.xml");
 		BookDAO bDAO=contx.getBean(BookDAOImp.class);
+		
 		b=bDAO.getById(id);
 		contx.close();
 		return b;
