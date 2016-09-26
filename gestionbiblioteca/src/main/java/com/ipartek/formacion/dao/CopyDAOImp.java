@@ -64,7 +64,7 @@ public class CopyDAOImp implements CopyDAO{
 		c.setIdCopy(id);
 		SqlParameterSource in=new MapSqlParameterSource().addValue("codCopy", c.getIdCopy());
 		Map<String,Object>out=jdbcCall.execute(in);
-		c.setBook(getFullBook((Integer)out.get("out_book")));
+		//c.setBook(getFullBook((Integer)out.get("out_book")));
 		c.setnPages((Integer)out.get("out_npages"));
 		c.setPublisher((String)out.get("out_publisher"));
 		c.setRent((Integer)out.get("out_rent"));
